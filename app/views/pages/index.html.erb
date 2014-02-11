@@ -1,1 +1,23 @@
-<h1>It works!</h1>
+<h1>iRO Server Population Tracker</h1>
+
+<div class="classic-population-information-list">
+  <% @classic_records.each do |r| %>
+    <ul>
+      <li>Server: <%= r.server.capitalize %></li>
+      <li>Online: <%= r.online %></li>
+      <li>Shops: <%= r.shops %></li>
+      <li>Recorded: <%= r.created_at %></li>
+    </ul>
+  <% end %>
+</div>
+
+<div class="renewal-population-information-list">
+  <% @renewal_records.each do |r| %>
+    <ul>
+      <li>Server: <%= r.server.capitalize %></li>
+      <li>Online: <%= r.online %></li>
+      <li>Shops: <%= r.shops %></li>
+      <li>Recorded: <%= r.created_at %></li>
+    </ul>
+  <% end %>
+</div>
