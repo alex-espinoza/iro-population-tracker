@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require Chart
+//= require raphael
+//= require morris
 //= require_tree .
