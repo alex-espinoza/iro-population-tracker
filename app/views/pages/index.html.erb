@@ -1,60 +1,40 @@
-<h1>iRO Server Population Tracker</h1>
-
-<div id="myfirstchart"></div>
-
-<div class="classic-population-information-list">
-  <h2>Classic</h2>
-  <ul class="data-key-columns">
-    <li><b>Recorded</b></li>
-    <li><b>Online</b></li>
-    <li><b>Shops</b></li>
-  </ul>
-  <% @classic_records.each do |r| %>
-    <ul>
-      <li><%= r.created_at %></li>
-      <li><%= r.online %></li>
-      <li><%= r.shops %></li>
-    </ul>
-  <% end %>
+<div class="header-container">
+  <h1>iRO Server Population Tracker</h1>
+  <h3>last 2 hours of activity, updated every 10 minutes</h3>
 </div>
 
-<div class="renewal-population-information-list">
-  <h2>Renewal</h2>
-  <ul class="data-key-columns">
-    <li><b>Recorded</b></li>
-    <li><b>Online</b></li>
-    <li><b>Shops</b></li>
-  </ul>
-  <% @renewal_records.each do |r| %>
-    <ul>
-      <li><%= r.created_at %></li>
-      <li><%= r.online %></li>
-      <li><%= r.shops %></li>
-    </ul>
-  <% end %>
-</div>
+<%= content_tag :div, "", :id => "population-information-chart", :data => {:records => @population_chart_data} %>
 
-<script type="text/javascript">
-  $(function() {
-    new Morris.Line({
-      // ID of the element in which to draw the chart.
-      element: 'myfirstchart',
-      // Chart data records -- each entry in this array corresponds to a point on
-      // the chart.
-      data: [
-        { year: '2008', value: 20 },
-        { year: '2009', value: 10 },
-        { year: '2010', value: 5 },
-        { year: '2011', value: 5 },
-        { year: '2012', value: 20 }
-      ],
-      // The name of the data record attribute that contains x-values.
-      xkey: 'year',
-      // A list of names of data record attributes that contain y-values.
-      ykeys: ['value'],
-      // Labels for the ykeys -- will be displayed when you hover over the
-      // chart.
-      labels: ['Value']
-    });
-  })
-</script>
+<div class="information-container">
+  <div class="classic-population-information-list">
+    <h2>Classic Server</h2>
+    <ul class="data-key-columns">
+      <li><b>Recorded</b></li>
+      <li><b>Online</b></li>
+      <li><b>Shops</b></li>
+    </ul>
+    <% @classic_records.each do |r| %>
+      <ul class="records">
+        <li><%= r.created_at.localtime %></li>
+        <li><%= r.online %></li>
+        <li><%= r.shops %></li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="renewal-population-information-list">
+    <h2>Renewal Server</h2>
+    <ul class="data-key-columns">
+      <li><b>Recorded</b></li>
+      <li><b>Online</b></li>
+      <li><b>Shops</b></li>
+    </ul>
+    <% @renewal_records.each do |r| %>
+      <ul class="records">
+        <li><%= r.created_at.localtime %></li>
+        <li><%= r.online %></li>
+        <li><%= r.shops %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
