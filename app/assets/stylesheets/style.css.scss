@@ -1,14 +1,45 @@
 body {
+  color: #444;
   font-family: "Helvetica", sans-serif;
+  height: 100%;
+  margin: 0;
 }
 
-h1 {
+.header-container {
+  background: #f3f3f3;
+  border-bottom: 1px solid #444;
+
+  h1 {
+    text-align: center;
+    text-shadow: 0 2px #fff;
+    margin: 0;
+    padding: 0.7em 0.7em 0 0.7em;
+  }
+
+  h3 {
+    text-align: center;
+    text-shadow: 0 2px #fff;
+    margin: 0;
+    padding: 0 0.7em 0.7em 0.7em;
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+.information-container {
+  height: 100%;
+  width: 100%;
   text-align: center;
+  overflow: auto;
 }
 
 .classic-population-information-list,
 .renewal-population-information-list {
   border: 1px solid #000;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  display: inline-block;
   margin: 1em;
 
   .data-key-columns li {
@@ -31,10 +62,20 @@ h1 {
     &:last-child {
       border-bottom: none;
     }
+
+    &:nth-child(even) {
+      background: #f7fbfc;
+    }
   }
 
   h2 {
-    margin: 0.25em 0;
+    padding: 0.25em 0;
+    margin: 0;
+    background: #f3f3f3;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
     text-align: center;
+    text-shadow: 0 2px #fff;
   }
 }
