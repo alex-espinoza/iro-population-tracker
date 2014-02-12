@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 gem 'rails', '4.0.2'
 
 gem 'pg'
@@ -20,3 +22,6 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+group :production  do
+  gem 'rails_12factor'
+end
